@@ -1,64 +1,34 @@
-# Task : 
+# Task 1: Treasure Map
 
 Instructions
 
-You are going to write a program that will mark a spot on a map with an X.
+To write a program that will mark a spot on a map with an X.
 
-In the starting code, you will find a variable called map.
+![image](https://github.com/sunandhini96/100_days_of_python/assets/63030539/58c31795-a43f-41a3-8e15-20a1dc6ffe38)
 
-This map contains a nested list. When map is printed this is what it looks like, notice the nesting:
-
-[['⬜️', '⬜️', '⬜️'],['⬜️', '⬜️', '⬜️'],['⬜️', '⬜️', '⬜️']]
-
-This is a bit hard to work with. So on lines 6 and 23, we've used this line of code print(f"{row1}\n{row2}\n{row3}") to format the 3 lists to be printed as a 3 by 3 grid, each on a new line.
-
-['⬜️', '⬜️', '⬜️']
-
-['⬜️', '⬜️', '⬜️']
-
-['⬜️', '⬜️', '⬜️']
-Now it looks a bit more like the coordinates of a real map:
-
-Map Coordinates Example
-
-Your job is to write a program that allows you to mark a square on the map using a letter-number system.
-
-List coordinates
 
 So an input of A3 should place an X at the position shown below:
 
-Exmaple location
+![image](https://github.com/sunandhini96/100_days_of_python/assets/63030539/c87aac71-9bc4-49f6-9706-97ab7c291ca5)
 
-First, your program must take the user input and convert it to a usable format.
-
-Next, you need to use that input to update your nested list with an "X". Remember that your nested list map actually looks like this:
-
-[['⬜️', '⬜️', '⬜️'],['⬜️', '⬜️', '⬜️'],['⬜️', '⬜️', '⬜️']]
-Example Input 1
+## Example Input 1
 B3
-Example Output 1
+## Example Output 1
 Hiding your treasure! X marks the spot.
+```
 ['⬜️', '️⬜️', '️⬜️']
 ['⬜️', '⬜️', '️⬜️']
 ['⬜️️', 'X', '⬜️️']
-Example Input 2
-B1
-Example Output 2
-Hiding your treasure! X marks the spot.
-['⬜️', 'X', '️⬜️']
-['⬜️', '⬜️', '️⬜️']
-['⬜️️', '⬜️️', '⬜️️']
-Hints
+```
 ## Solution : 
 
-``` line1 = ["⬜️","️⬜️","️⬜️"]
+```
+line1 = ["⬜️","️⬜️","️⬜️"]
 line2 = ["⬜️","⬜️","️⬜️"]
 line3 = ["⬜️️","⬜️️","⬜️️"]
 map = [line1, line2, line3]
 print("Hiding your treasure! X marks the spot.")
 position = input() # Where do you want to put the treasure?
-# 🚨 Don't change the code above 👆
-# Write your code below this row 👇
 letter = position[0]
 first =int(position[1])-1
 if letter == "A":
@@ -68,8 +38,6 @@ elif letter == "B":
 else:
   map[first][2] = "X"
 
-# Write your code above this row 👆
-# 🚨 Don't change the code below 👇
 print(f"{line1}\n{line2}\n{line3}")
 ```
 ## Output : 
@@ -77,16 +45,90 @@ print(f"{line1}\n{line2}\n{line3}")
 TEST CASE 1
 
 ### Input   :  B3
-### Expected output
-
-Hiding your treasure! X marks the spot.
-['⬜️', '️⬜️', '️⬜️']
-['⬜️', '⬜️', '️⬜️']
-['⬜️️', 'X', '⬜️️']
-
 ### Output
 
 Hiding your treasure! X marks the spot.
-['X', '️⬜️', '️⬜️']
+```
+['⬜️', '️⬜️', '️⬜️']
 ['⬜️', '⬜️', '️⬜️']
-['⬜️️', '⬜️️', '⬜️️']
+['⬜️️', 'X', '⬜️️']
+```
+
+
+# Task 2: 
+## Rock, Paper, Scissors game:
+### Code:
+```
+import random
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+game_images = [rock, paper, scissors]
+our_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
+
+if our_choice < 0 or our_choice >= 3:
+  print("invalid number ! Try again ")
+else:
+  print(game_images[our_choice])
+
+
+  computer_choice = random.randint(0,2)
+  print("computer chose: ")
+  print(game_images[computer_choice])
+  
+  if computer_choice == our_choice:
+    print("It's a tie!")
+  elif computer_choice == 0 and our_choice == 2:
+    print("You Lose!")
+  elif computer_choice == 2 and our_choice == 0:
+    print("You Win!")
+  elif computer_choice > our_choice:
+      print("You Lose!")  
+  elif our_choice > computer_choice:
+      print("You Win!")
+```
+### Output:
+What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.
+
+1
+```
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+```
+computer chose: 
+```
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+```
+You Win!
